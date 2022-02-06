@@ -1,12 +1,10 @@
-# Portable(ish) Pandoc Magic
+# Data Analysis template
 
-For years I've used the files in [Global-Pandoc-Files](https://github.com/andrewheiss/Global-Pandoc-files) to convert Markdown-based documents into Word (docx through odt), HTML, and PDF (through xelatex). My templates and Makefile there are subsequently based on [Kieran Healy's](https://kieranhealy.org/) [Plain Text Social Science](http://plain-text.co/) system.
+This template is based on Andrew Heiss' [Global-Pandoc-Files](https://github.com/andrewheiss/Global-Pandoc-files) and [Portable Pandoc Magic](https://github.com/andrewheiss/portable-pandoc-magic) to convert Markdown-based documents into Word (docx through odt), HTML, and PDF (through xelatex). His templates and Makefile are based on [Kieran Healy's](https://kieranhealy.org/) [Plain Text Social Science](http://plain-text.co/) system.
 
-My system has been magical, but it's [*incredibly* convoluted](https://xkcd.com/1579/), with LaTeX support files saved in one place, pandoc filters saved in another, templates saved in yet another, and other ad hoc scripts saved somewhere else. Every time I do a clean install of macOS, I have to rebuild this rickety foundation, and working with coauthors has often been a hassle, since they don't have the same files in the same five locations I use, so they can't convert the Markdown.
+LaTeX support files saved in one place (`/tex_out/`), pandoc filters saved in another (`/pandoc`), templates saved in yet another, and other ad hoc scripts saved somewhere else. Scripts of the analysis have their own folder and are called in the preamble of the `rmd-paper.Rmd`. `/sections` include all other (external) `.md` files necessary for the paper (e.g. `sections/introduction.md` or `sections/conclusion.md`).
 
-To simplify things for me and for collaborators, I've taken my global pandoc files and made them as portable as possible. Now, after installing a handful of programs, all I (or anyone else) needs to do is place `Makefile` and `pandoc/` in the same directory as a Markdown or R Markdown file, type `make SOMETHING` in the terminal, and everything will work. All the important support files live in `pandoc/` and don't need to be moved anywhere.
-
-Super magical.
+After installing a handful of programs, all I (or anyone else) needs to do is place `Makefile` and `pandoc/` in the same directory as a Markdown or R Markdown file, type `make SOMETHING` in the terminal, and everything will work. All the important support files live in `pandoc/` and don't need to be moved anywhere.
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -27,7 +25,7 @@ This system technically isn't *100%* portable, since it needs a few larger piece
 - [**pandoc**](https://pandoc.org/MANUAL.html): Install either with `brew install pandoc` or by downloading it from [pandoc.org](https://pandoc.org/installing.html).
 - [**make**](https://www.gnu.org/software/make/): The workhorse behind all the conversion is `make`, which uses this [`Makefile`](Makefile) to generate different pandoc incantations. On macOS, open Terminal and run `xcode-select --install` to install a handful of developer tools, including `make`. For Windows, [follow these instructions](https://stat545.com/make-windows.html).
 - [**R**](https://cran.r-project.org/): Needed to convert [R Markdown](https://rmarkdown.rstudio.com/) files to Markdown (if you're using R Markdown). Also needed to get word count when you run `make count`. Download and install from [r-project.org](https://cran.r-project.org/). Ensure you have the following packages installed: [**tidyverse**](https://www.tidyverse.org/), [**knitr**](https://yihui.org/knitr/), [**rvest**](https://rvest.tidyverse.org/), and [**stringi**](http://www.gagolewski.com/software/stringi/) (run `install.packages(c("tidyverse", "knitr", "rvest", "stringi"))`)
-- **Python 3**: Install either with `brew install python`  or by downloading it from [python.org](https://www.python.org/downloads/mac-osx/).
+- **Python 3**: Install either with `brew install python`  or by downloading it from [python.org](https://www.python.org/downloads/).
 - **TeX**: If you want to do anything with PDFs, install LaTeX. It's easiest to just install the massive [MacTeX distribution](https://tug.org/mactex/) on macOS (or some Windows distribution if you use Windows).
 - [**pandoc-include**](https://github.com/DCsunset/pandoc-include): Filter for inserting external Markdown files with syntax like `!include path/to/file.md`. Install with `pip install pandoc-include`.
 - [**pandoc-citeproc**](https://github.com/jgm/pandoc-citeproc): Filter for dealing with bibliographies. Install with `brew install pandoc-citeproc`. It comes with pandoc if you install it from [pandoc.org](https://pandoc.org/installing.html).
@@ -35,7 +33,7 @@ This system technically isn't *100%* portable, since it needs a few larger piece
 - [**bibtool**](https://github.com/ge-ne/bibtool): Script for parsing and dealing with BibTeX files. Used for extracting cited references into a standalone `.bib` files when you run `make bib`. Install with `brew install bib-tool`.
 - [**gawk**](https://www.gnu.org/software/gawk/):  The version of awk that comes with macOS by default doesn't work correctly with the script that inserts git commit information in the footer of PDFs. Install a more recent one with `brew install gawk`.
 - [**LibreOffice**](https://www.libreoffice.org/): Open source clone of Microsoft Office. Used for converting `.odt` files to `.docx` when you run `make docx`. Install by [downloading their installer](https://www.libreoffice.org/download/download/).
-- **Fonts**: There are a bunch of fonts included in the `pandoc/fonts/` folder. Install these as needed.
+- **Fonts**: There are a bunch of fonts included in the `pandoc/fonts/` folder. Install these as needed - ideally for all users. If not installed for all users, you may need to repeat this step in the future.
 
 
 ## Usage
@@ -75,6 +73,7 @@ After you've installed all those things (which you should only have to do once),
     - `make bib`: Extract bibliography references to a standalone `.bib` file
     - `make count`: Count the words in the manuscript
     - `make clean`: Remove all output files
+    - `maek all`: Creates all the files above 
 
     Through the magic of `make`, you can combine any of these, like `make html docx tex` or `make html msdocx mstex`, etc.
 
