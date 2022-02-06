@@ -1,10 +1,12 @@
 # Data Analysis template
 
-This template is based on Andrew Heiss' [Global-Pandoc-Files](https://github.com/andrewheiss/Global-Pandoc-files) and [Portable Pandoc Magic](https://github.com/andrewheiss/portable-pandoc-magic) to convert Markdown-based documents into Word (docx through odt), HTML, and PDF (through xelatex). His templates and Makefile are based on [Kieran Healy's](https://kieranhealy.org/) [Plain Text Social Science](http://plain-text.co/) system.
+This template is based on [Andrew Heiss'](https://www.andrewheiss.com/) [Global-Pandoc-Files](https://github.com/andrewheiss/Global-Pandoc-files) and [Portable Pandoc Magic](https://github.com/andrewheiss/portable-pandoc-magic) to convert Markdown-based documents into Word (docx through odt), HTML, and PDF (through xelatex). His templates and Makefile are based on [Kieran Healy's](https://kieranhealy.org/) [Plain Text Social Science](http://plain-text.co/) system.
 
-LaTeX support files saved in one place (`/tex_out/`), pandoc filters saved in another (`/pandoc`), templates saved in yet another, and other ad hoc scripts saved somewhere else. Scripts of the analysis have their own folder and are called in the preamble of the `rmd-paper.Rmd`. `/sections` include all other (external) `.md` files necessary for the paper (e.g. `sections/introduction.md` or `sections/conclusion.md`).
+LaTeX support files saved in one place (`/tex_out/`), pandoc filters saved in another (`/pandoc`), templates saved in yet another, and other ad hoc scripts saved somewhere else. Scripts of the analysis have their own folder and are called in the preamble of the `rmd-paper.Rmd`. `/sections` include all other (external) `.md` files necessary for the paper (e.g. `/sections/introduction.md` or `sections/conclusion.md`).
 
-After installing a handful of programs, all I (or anyone else) needs to do is place `Makefile` and `pandoc/` in the same directory as a Markdown or R Markdown file, type `make SOMETHING` in the terminal, and everything will work. All the important support files live in `pandoc/` and don't need to be moved anywhere.
+After installing a handful of programs, all I (or anyone else) needs to do is place `Makefile` and `pandoc/` in the same directory as a Markdown or R Markdown file, type `make SOMETHING` in the terminal, and everything will work. All the important support files live in `/pandoc/` and don't need to be moved anywhere.
+
+## Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -47,6 +49,14 @@ After you've installed all those things (which you should only have to do once),
     ├── Makefile
     ├── manuscript.md
     ├── references.bib
+    ├── sections
+        ├── introduction.md
+        ├── conclusions.md
+    ├── data
+        ├── derived
+        ├── manual
+        ├── raw
+    ├── scripts
     └── pandoc
         ├── bin
         ├── csl
