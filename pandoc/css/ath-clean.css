@@ -1,13 +1,12 @@
 /*
-  Title: ATH Clean
-Author: Andrew Heiss @andrewheiss <www.andrewheiss.com>
-  Description: Nice clean theme for Pandoc, based in part on "Pesto"
+Title: ATH Clean revised
+Description: Nice clean theme for Pandoc by Andrew Heiss, based in part on "Pesto"
 (https://github.com/ttscoff/MarkedCustomStyles/blob/master/Pesto.scss) by
 Andrew Patton (@acusti <http://www.acusti.ca>)
 Non-standard fonts used: Work Sans, Gentium Basic
 ---
   */
-  @import url("https://fonts.googleapis.com/css?family=Work+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Gentium+Basic");
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -131,12 +130,12 @@ h6 {
 
 /* Links */
   a {
-    color: #c7402d;
+    color: #5e81ac;
       text-decoration: none;
   }
 
 a:hover {
-  color: #eaaca3;
+  color: #d08770;
 }
 
 /* Monospaced stuff */
@@ -252,7 +251,7 @@ hr {
 }
 
 .code-repo {
-  font-size: 0.8em;
+  font-size: 0.5em;
 }
 
 .authors {
@@ -336,21 +335,6 @@ p.epigraph-source {
   font-weight: 300;
 }
 
-/* Images */
-  /* figure {
-    display: inline-block;
-    position: relative;
-    margin: 1em 0 2em;
-    text-align: center;
-  }
-
-img {
-  margin: 0 auto;
-  border: 0 none;
-  display: block;
-  width: auto;
-  max-width: 100%;
-} */
   figure {
     display: table;
     text-align: center;
