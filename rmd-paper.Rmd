@@ -99,8 +99,8 @@ ggsave(here::here("figs-tbls", "mpg-plot.png"), plot = plot1,
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam (see @fig:mpg-plot), eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
-$$
-\text{This is a test} = \beta_1 x_1 + \epsilon
+$$ 
+\text{This is a test} = \beta_1 x_1 + \epsilon 
 $$
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
