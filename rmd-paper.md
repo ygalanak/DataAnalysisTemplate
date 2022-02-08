@@ -7,7 +7,7 @@ author:
 - name: Author 2
   affiliation: University of Wherever
   email: author2@example2.ac.uk
-date: 07 February, 2022
+date: 08 February, 2022
 published: Working paper.
 title-page: true
 code-repo: "Access the code at <https://github.com/ygalanak/DataAnalysisTemplate>"
