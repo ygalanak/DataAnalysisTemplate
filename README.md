@@ -6,6 +6,11 @@ LaTeX support files saved in one place (`/tex_out/`), pandoc filters saved in an
 
 After installing a handful of programs, all I (or anyone else) needs to do is place `Makefile` and `pandoc/` in the same directory as a Markdown or R Markdown file, type `make SOMETHING` in the terminal, and everything will work. All the important support files live in `/pandoc/` and don't need to be moved anywhere.
 
+## Log of changes (relative to Andrew's portable version)
+1. Add `pandoc-crossref.exe` in the project folder.
+2. `pandoc/templates/xelatex.tex` and `pandoc/templates/xelatex-manuscript.tex` replace font `IncosoloataGo` with `Incosolata` (as it is named in the `pandoc/fonts` folder.).
+3. Github repo includes `tex_out/rmd-paper.pdf`, but not any other supporting output files from `.tex`.
+
 ## Contents
 
 - [Installation](#installation)
