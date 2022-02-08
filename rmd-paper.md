@@ -40,6 +40,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 ![Scatterplot showing the relationship between city and highway miles per gallon](figs-tbls/mpg-plot.pdf){#fig:mpg-plot}
 
+
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam (see @fig:mpg-plot), eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
 $$ 

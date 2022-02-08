@@ -56,6 +56,7 @@ source("scripts/001-HelperFunctions.R", local = knitr::knit_global())
 
 ```{r libraries}
 library(tidyverse)
+library(gt)
 library(here)
 library(janitor)
 library(socviz)
@@ -100,6 +101,7 @@ ggsave(here::here("figs-tbls", "mpg-plot.png"), plot = plot1,
 
 ![Scatterplot showing the relationship between city and highway miles per gallon](figs-tbls/mpg-plot.pdf){#fig:mpg-plot}
 
+
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam (see @fig:mpg-plot), eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
 $$ 
@@ -125,7 +127,7 @@ tribble(
   2, 3,
   5, 7,
   9, 1
-) %>% 
+) %>%
   # pandoc.table(caption = "This is a table {#tbl:mytable}")
   pandoc.table.return(caption = "This is a table {#tbl:mytable}") %>% 
   cat(file = here::here("figs-tbls", "mytable.md"))
