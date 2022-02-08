@@ -49,6 +49,9 @@ opts_knit$set(kfigr.prefix=TRUE,
 # call in functions from `/scripts/`
 source("scripts/001-HelperFunctions.R", local = knitr::knit_global())
 # or sys.source("scripts/001-HelperFunctions.R", envir = knitr::knit_global())
+
+# Load objects in study1.RData into my workspace
+#load(file = "data/derived/myDerivedData.RData")
 ```
 
 ```{r libraries}

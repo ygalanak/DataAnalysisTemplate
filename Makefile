@@ -10,7 +10,7 @@
 #		- LibreOffice
 #		- pandoc
 #		- pandoc-include (pip install pandoc-include)
-#		- pandoc-crossref (brew install pandoc-crossref on macOS)
+#		- pandoc-crossref (Download from https://lierdakil.github.io/pandoc-crossref/ and save the .exe file in the same directory of your project)
 #		- bibtools (brew install bib-tools on macOS)
 #		- gawk (brew install gawk on macOS)
 #		- Fonts (as needed) in pandoc/fonts/

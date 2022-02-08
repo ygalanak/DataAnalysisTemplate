@@ -36,7 +36,7 @@ This system technically isn't *100%* portable, since it needs a few larger piece
 - **TeX**: If you want to do anything with PDFs, install LaTeX. It's easiest to just install the massive [MacTeX distribution](https://tug.org/mactex/) on macOS (or some Windows distribution if you use Windows).
 - [**pandoc-include**](https://github.com/DCsunset/pandoc-include): Filter for inserting external Markdown files with syntax like `!include path/to/file.md`. Install with `pip install pandoc-include`.
 - [**pandoc-citeproc**](https://github.com/jgm/pandoc-citeproc): Filter for dealing with bibliographies. Install with `brew install pandoc-citeproc`. It comes with pandoc if you install it from [pandoc.org](https://pandoc.org/installing.html).
-- [**pandoc-crossref**](https://lierdakil.github.io/pandoc-crossref/): Filter for creating "Figure 1" and "Table 3" cross references. Install with `brew install pandoc-crossref`.
+- [**pandoc-crossref**](https://lierdakil.github.io/pandoc-crossref/): Filter for creating "Figure 1" and "Table 3" cross references. Install with `brew install pandoc-crossref`. Alternatively, export the `.exe` in the same folder of your project's directory.
 - [**bibtool**](https://github.com/ge-ne/bibtool): Script for parsing and dealing with BibTeX files. Used for extracting cited references into a standalone `.bib` files when you run `make bib`. Install with `brew install bib-tool`.
 - [**gawk**](https://www.gnu.org/software/gawk/):  The version of awk that comes with macOS by default doesn't work correctly with the script that inserts git commit information in the footer of PDFs. Install a more recent one with `brew install gawk`.
 - [**LibreOffice**](https://www.libreoffice.org/): Open source clone of Microsoft Office. Used for converting `.odt` files to `.docx` when you run `make docx`. Install by [downloading their installer](https://www.libreoffice.org/download/download/).
@@ -44,15 +44,16 @@ This system technically isn't *100%* portable, since it needs a few larger piece
 
 
 ## Usage
+### STEP 1: Install the [Installation](#installation) items 
+If done STEP 1 before, no need to repeat. Note that if you haven't installed the `pandoc/fonts` for all users, you may experience issues in compiling. In that case, you may reinstall the fonts.
 
-After you've installed all those things (which you should only have to do once), you can start writing and compiling! Here's what you do:
-
-1. Create a Markdown file (or R Markdown file) in some directory. Place `Makefile` and the [`pandoc`](pandoc/) folder in the same directory. If you're using a bibliography, include a BibTeX file in the same directory. It should look like this:
+### STEP 2:
+1. Create a Markdown file (or R Markdown file) in some directory. Place `Makefile` and the [`pandoc`](pandoc/) folder in the same directory. If you're using a bibliography, include a BibTeX file in the same directory. The directory should look like this:
 
     ```text
     .
     ├── Makefile
-    ├── manuscript.md
+    ├── manuscript.Rmd
     ├── references.bib
     ├── sections
         ├── introduction.md
@@ -73,9 +74,13 @@ After you've installed all those things (which you should only have to do once),
 
 3. Change any of the other modifiable variables in `Makefile`, like `ENDFLOAT` or `BLINDED` .
 
-4. Write stuff in your (R) Markdown file. See [The Plain Person’s Guide to Plain Text Social Science](http://plain-text.co/) for more details.
+4. Use your `scripts/` to perform your empirical analysis. This does *not* include any text.
 
-5. To convert from Markdown to something else, open a terminal window to your main directory and type `make html` or `make docx`, etc. Here are all the different things you can include after `make`:
+5. Save your data frames in `data/derived/` (as `.csv` or `.rds`) or store R objects as `.RData`. For the latter, see [here](https://bookdown.org/ndphillips/YaRrr/rdata-files.html). 
+
+6. Write stuff in your (R) Markdown file. See [The Plain Person’s Guide to Plain Text Social Science](http://plain-text.co/) for more details. I recommend you make changes *only* to your `rmd-paper.Rmd`.
+
+7. To convert from Markdown to something else, open a terminal window to your main directory and type `make html` or `make docx`, etc. Here are all the different things you can include after `make`:
 
     - `make md`: Convert R Markdown to regular Markdown
     - `make html`: Create HTML file
@@ -92,7 +97,9 @@ After you've installed all those things (which you should only have to do once),
 
     Through the magic of `make`, you can combine any of these, like `make html docx tex` or `make html msdocx mstex`, etc.
 
-6. That's it! Write more, run `make SOMETHING` again, write more, run `make SOMETHING` again, and so on until you have a beautiful final document.
+> `make tex` may need several times to run until it produces a `.pdf` without errors.
+
+8. That's it! Write more, run `make SOMETHING` again, write more, run `make SOMETHING` again, and so on until you have a beautiful final document.
 
 
 ## Example
