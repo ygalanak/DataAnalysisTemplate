@@ -65,6 +65,8 @@ library(showtext)
 library(tibble)
 library(magrittr)
 library(pander)
+library(gridExtra)
+library(grid)
 ```
 
 # Introduction
@@ -93,10 +95,19 @@ plot1 <- ggplot(mpg, aes(x = cty, y = hwy, color = as.factor(cyl))) +
   labs(x = "City MPG", y = "Highway MPG", color = "Cylinders") +
   theme_minimal(9)
 
+plot1 <-arrangeGrob(plot1, nrow=1,
+             bottom = ggpubr::text_grob("Note: this plot really shows the same information, and is really very very very very long. \nSource: Own elaboration based on data",
+                           x = 0,
+                           y = 0.5,
+                           just = "left", 
+                           size = 7, #font size
+                           family = "sans"
+                           ))
+
 ggsave(here::here("figs-tbls", "mpg-plot.pdf"), plot = plot1,
        width = 5, height = 3, units = "in", device = cairo_pdf)
-ggsave(here::here("figs-tbls", "mpg-plot.png"), plot = plot1,
-       width = 5, height = 3, units = "in", type = "cairo", dpi = 300)
+#ggsave(here::here("figs-tbls", "mpg-plot.png"), plot = plot1,
+#       width = 5, height = 3, units = "in", type = "cairo", dpi = 300)
 ```
 
 ![Scatterplot showing the relationship between city and highway miles per gallon](figs-tbls/mpg-plot.pdf){#fig:mpg-plot}
