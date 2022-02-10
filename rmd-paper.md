@@ -7,7 +7,7 @@ author:
 - name: Author 2
   affiliation: University of Wherever
   email: author2@example2.ac.uk
-date: 09 February, 2022
+date: 10 February, 2022
 published: Working paper.
 title-page: true
 code-repo: "Access the code at <https://github.com/ygalanak/DataAnalysisTemplate>"
@@ -68,3 +68,7 @@ At vero eos et^[This is a footnote with an in-text reference @HeissKelley:2017.]
 Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est^[This is a footnote.], omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
 
 !include 'sections/conclusion.md'
+
+\newpage
+
+
