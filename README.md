@@ -1,14 +1,17 @@
 # Data Analysis template
 
-This template is based on [Andrew Heiss'](https://www.andrewheiss.com/) [Global-Pandoc-Files](https://github.com/andrewheiss/Global-Pandoc-files) and [Portable Pandoc Magic](https://github.com/andrewheiss/portable-pandoc-magic) to convert Markdown-based documents into Word (docx through odt), HTML, and PDF (through xelatex). His templates and Makefile are based on [Kieran Healy's](https://kieranhealy.org/) [Plain Text Social Science](http://plain-text.co/) system.
+This template is based on [Andrew Heiss'](https://www.andrewheiss.com/) [Global-Pandoc-Files](https://github.com/andrewheiss/Global-Pandoc-files) and [Portable Pandoc Magic](https://github.com/andrewheiss/portable-pandoc-magic) to convert Markdown-based documents into Word (docx through odt), HTML, and PDF (through xelatex). 
 
-LaTeX support files saved in one place (`/tex_out/`), pandoc filters saved in another (`/pandoc`), templates saved in yet another, and other ad hoc scripts saved somewhere else. Scripts of the analysis have their own folder and are called in the preamble of the `rmd-paper.Rmd`. `/sections` include all other (external) `.md` files necessary for the paper (e.g. `/sections/introduction.md` or `sections/conclusion.md`).
+## Project management
+- [:file\_folder: tex_out](/tex_out): $\LaTeX$ support files 
+- [:file\_folder: pandoc](/pandoc): (1) portable pandoc filters, (2) templates, (3) necessary fonts and (4) ad hoc scripts 
+- [:file\_folder: scripts](/scripts): R scripts of the analysis - they are called in the preamble of the `rmd-paper.Rmd`. 
+- [:file\_folder: sections](/sections): include all other (external) `.md` files necessary for the paper (e.g. `/sections/introduction.md` or `sections/conclusion.md`).
 
-After installing a handful of programs, all I (or anyone else) needs to do is place `Makefile` and `pandoc/` in the same directory as a Markdown or R Markdown file, type `make SOMETHING` in the terminal, and everything will work. All the important support files live in `/pandoc/` and don't need to be moved anywhere.
 
 ## Log of changes (relative to Andrew's portable version)
-1. Add `pandoc-crossref.exe` in the project folder.
-2. `pandoc/templates/xelatex.tex` and `pandoc/templates/xelatex-manuscript.tex` replace font `IncosoloataGo` with `Incosolata` (as it is named in the `pandoc/fonts` folder.).
+1. Added `pandoc-crossref.exe` in the project folder.
+2. `pandoc/templates/xelatex.tex` and `pandoc/templates/xelatex-manuscript.tex` replace font `IncosoloataGo` with `Incosolata`.
 3. Github repo includes `tex_out/rmd-paper.pdf`, but not any other supporting output files from `.tex`.
 
 ## Contents
@@ -27,7 +30,7 @@ After installing a handful of programs, all I (or anyone else) needs to do is pl
 
 ## Installation
 
-This system technically isn't *100%* portable, since it needs a few larger pieces of software. You'll need to install these things:
+You'll need to install these things:
 
 - [**pandoc**](https://pandoc.org/MANUAL.html): Install either with `brew install pandoc` or by downloading it from [pandoc.org](https://pandoc.org/installing.html).
 - [**make**](https://www.gnu.org/software/make/): The workhorse behind all the conversion is `make`, which uses this [`Makefile`](Makefile) to generate different pandoc incantations. On macOS, open Terminal and run `xcode-select --install` to install a handful of developer tools, including `make`. For Windows, [follow these instructions](https://stat545.com/make-windows.html).
@@ -42,6 +45,7 @@ This system technically isn't *100%* portable, since it needs a few larger piece
 - [**LibreOffice**](https://www.libreoffice.org/): Open source clone of Microsoft Office. Used for converting `.odt` files to `.docx` when you run `make docx`. Install by [downloading their installer](https://www.libreoffice.org/download/download/).
 - **Fonts**: There are a bunch of fonts included in the `pandoc/fonts/` folder. Install these as needed - ideally for all users. If not installed for all users, you may need to repeat this step in the future.
 
+⚠️ This template is not fully portable. Some changes to specific to your computer directories are required.
 
 ## Usage
 ### STEP 1: Install the [Installation](#installation) items 
@@ -72,9 +76,9 @@ If done STEP 1 before, no need to repeat. Note that if you haven't installed the
 
 2. Open `Makefile` and change the `SRC` and `BIB_FILE` variables to match your (R) Markdown file and BibTeX file names.
 
-3. Change any of the other modifiable variables in `Makefile`, like `ENDFLOAT` or `BLINDED` .
+3. Change any of the other modifiable variables in `Makefile`; e.g. `ENDFLOAT` or `BLINDED`.
 
-4. Use your `scripts/` to perform your empirical analysis. This does *not* include any text.
+4. Use your `scripts/` to perform your empirical analysis in R (or any other software required^[If using other software, make sure of the outputs you obtain. E.g. `.csv` format for data frames may be the way to go.]). This does *not* include any text.
 
 5. Save your data frames in `data/derived/` (as `.csv` or `.rds`) or store R objects as `.RData`. For the latter, see [here](https://bookdown.org/ndphillips/YaRrr/rdata-files.html). 
 
