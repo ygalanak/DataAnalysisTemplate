@@ -23,7 +23,7 @@ This template is based on [Andrew Heiss'](https://www.andrewheiss.com/) [Global-
   - [Including external files](#including-external-files)
   - [Blinding](#blinding)
   - [Version control](#version-control)
-  - [&quot;Figure 1 here&quot;](#quotfigure-1-herequot)
+  - [&quot;Figure 1 here&quot;](#figure-1-here)
   - [PNG conversion](#png-conversion)
   - [Cross references and knitr/R Markdown](#cross-references-and-knitrr-markdown)
 
@@ -78,11 +78,11 @@ If done STEP 1 before, no need to repeat. Note that if you haven't installed the
 
 3. Change any of the other modifiable variables in `Makefile`; e.g. `ENDFLOAT` or `BLINDED`.
 
-4. Use your `scripts/` to perform your empirical analysis in R (or any other software required^[If using other software, make sure of the outputs you obtain. E.g. `.csv` format for data frames may be the way to go.]). This does *not* include any text.
+4. Use your `scripts/` to perform your empirical analysis in R (or any other software required). 
 
 5. Save your data frames in `data/derived/` (as `.csv` or `.rds`) or store R objects as `.RData`. For the latter, see [here](https://bookdown.org/ndphillips/YaRrr/rdata-files.html). 
 
-6. Write stuff in your (R) Markdown file. See [The Plain Person’s Guide to Plain Text Social Science](http://plain-text.co/) for more details. I recommend you make changes *only* to your `rmd-paper.Rmd`.
+6. Write stuff in your (R) Markdown file. I recommend you make changes *only* to your `rmd-paper.Rmd`.
 
 7. To convert from Markdown to something else, open a terminal window to your main directory and type `make html` or `make docx`, etc. Here are all the different things you can include after `make`:
 
@@ -97,7 +97,7 @@ If done STEP 1 before, no need to repeat. Note that if you haven't installed the
     - `make bib`: Extract bibliography references to a standalone `.bib` file
     - `make count`: Count the words in the manuscript
     - `make clean`: Remove all output files
-    - `maek all`: Creates all the files above 
+    - `make all`: Creates all the files above 
 
     Through the magic of `make`, you can combine any of these, like `make html docx tex` or `make html msdocx mstex`, etc.
 
