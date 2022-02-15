@@ -6,6 +6,7 @@
 
 # cache
 cache/
+missfont.log
 
 # Output
 md-paper-manuscript.docx
