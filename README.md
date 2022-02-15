@@ -3,7 +3,7 @@
 This template is based on [Andrew Heiss'](https://www.andrewheiss.com/) [Global-Pandoc-Files](https://github.com/andrewheiss/Global-Pandoc-files) and [Portable Pandoc Magic](https://github.com/andrewheiss/portable-pandoc-magic) to convert Markdown-based documents into Word (docx through odt), HTML, and PDF (through xelatex). 
 
 ## Project management
-- [:file\_folder: tex_out](/tex_out): $\LaTeX$ support files 
+- [:file\_folder: tex_out](/tex_out): LaTeX support files 
 - [:file\_folder: pandoc](/pandoc): (1) portable pandoc filters, (2) templates, (3) necessary fonts and (4) ad hoc scripts 
 - [:file\_folder: scripts](/scripts): R scripts of the analysis - they are called in the preamble of the `rmd-paper.Rmd`. 
 - [:file\_folder: sections](/sections): include all other (external) `.md` files necessary for the paper (e.g. `/sections/introduction.md` or `sections/conclusion.md`).
@@ -33,7 +33,7 @@ This template is based on [Andrew Heiss'](https://www.andrewheiss.com/) [Global-
 You'll need to install these things:
 
 - [**pandoc**](https://pandoc.org/MANUAL.html): Install either with `brew install pandoc` or by downloading it from [pandoc.org](https://pandoc.org/installing.html).
-- [**make**](https://www.gnu.org/software/make/): The workhorse behind all the conversion is `make`, which uses this [`Makefile`](Makefile) to generate different pandoc incantations. On macOS, open Terminal and run `xcode-select --install` to install a handful of developer tools, including `make`. For Windows, [follow these instructions](https://stat545.com/make-windows.html).
+- [**make**](https://www.gnu.org/software/make/): The workhorse behind all the conversion is `make`, which uses this [`Makefile`](Makefile) to generate different pandoc incantations. On macOS, open Terminal and run `xcode-select --install` to install a handful of developer tools, including `make`. On Windows, [follow these instructions](https://stat545.com/make-windows.html).
 - [**R**](https://cran.r-project.org/): Needed to convert [R Markdown](https://rmarkdown.rstudio.com/) files to Markdown (if you're using R Markdown). Also needed to get word count when you run `make count`. Download and install from [r-project.org](https://cran.r-project.org/). Ensure you have the following packages installed: [**tidyverse**](https://www.tidyverse.org/), [**knitr**](https://yihui.org/knitr/), [**rvest**](https://rvest.tidyverse.org/), and [**stringi**](http://www.gagolewski.com/software/stringi/) (run `install.packages(c("tidyverse", "knitr", "rvest", "stringi"))`)
 - **Python 3**: Install either with `brew install python`  or by downloading it from [python.org](https://www.python.org/downloads/).
 - **TeX**: If you want to do anything with PDFs, install LaTeX. It's easiest to just install the massive [MacTeX distribution](https://tug.org/mactex/) on macOS (or some Windows distribution if you use Windows).
@@ -110,6 +110,8 @@ If done STEP 1 before, no need to repeat. Note that if you haven't installed the
 
 There are two complete minimal examples included in this repository: `md-paper.md` (regular Markdown) and `rmd-paper.Rmd` (R Markdown). Change the `SRC` variable to match one of their names, run `make SOMETHING`, and see what happens.
 
+`rmd-paper.md` is generated from `rmd-paper.Rmd`. Only edit the `.Rmd` file, *not* the `.md` file.
+
 
 ## Miscellaneous
 
@@ -139,8 +141,9 @@ Word and HTML can choke on PDF images, so those targets use a helper script ([`p
 
 ### Cross references and knitr/R Markdown
 
-R Markdown is amazing. You can embed plots in documents automatically. I love it and use it all the time. BUT it does not play well with `pandoc-crossref` at all, which is super sad.
+You can embed plots in documents automatically. BUT it does not play well with `pandoc-crossref`.
 
+#### Cross-ref for figures
 For `pandoc-crossref` to work, you have to use this syntax:
 
 ```text
@@ -149,7 +152,7 @@ Here is some text that refers to @fig:myfig.
 ![Caption for figure](output/myfig.pdf){#fig:myfig}
 ```
 
-There's unfortunately no way to get that `{#fig:myfig}` into the correct place in a knitted R Markdown document. The only solution I've found is to not use R/knitr to include figures. Instead I create the figures elsewhere—either in a different R script, or in a chunk in my document—and then save them to disk as PDF or PNG (or both). I then use standard Markdown + pandoc-crossref syntax (`![](){}`) to include them:
+There's unfortunately no way to get that `{#fig:myfig}` into the correct place in a knitted R Markdown document. A solution is to not use R/knitr to include figures. Instead you may create the figures elsewhere—either in a different R script, or in a chunk in the document—and then save them to disk as PDF or PNG (or both). Then, use standard Markdown + pandoc-crossref syntax (`![](){}`) to include them:
 
 ````text
 ```{r create-figure, echo=FALSE, warning=FALSE, error=FALSE}
@@ -168,6 +171,7 @@ Here is some text that refers to @fig:myfig.
 ![Caption for figure](output/myfig.pdf){#fig:myfig}
 ````
 
+#### Cross-ref for tables
 You don't need to do this with tables, though. If you use `pandoc.table()` from the [**pander** library](https://www.r-project.org/nosvn/pandoc/pander.html), you can include the correct pandoc-crossref syntax in the table caption:
 
 ````text
@@ -185,3 +189,4 @@ tribble(
   pandoc.table(caption = "This is a table {#tbl:mytable}")
 ```
 ````
+
