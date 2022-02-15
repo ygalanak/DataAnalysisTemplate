@@ -99,7 +99,7 @@ plot1 <- ggplot(mpg, aes(x = cty, y = hwy, color = as.factor(cyl))) +
         legend.title=element_text(size=8))
 
 plot1 <-arrangeGrob(plot1, nrow=1,
-             bottom = ggpubr::text_grob("Note: this plot really shows the same information, and is really very very very very long. \nSource: Own elaboration based on data",
+             bottom = ggpubr::text_grob("Note: this plot really shows the same information, and is really very very very very long. \nSource: Authors' elaboration based on data",
                            x = 0,
                            y = 0.5,
                            just = "left", 
@@ -119,7 +119,7 @@ ggsave(here::here("figs-tbls", "mpg-plot.png"), plot = plot1,
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam (see @fig:mpg-plot), eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
 $$ 
-\text{This is a test} = \beta_1 x_1 + \epsilon 
+\text{This is a test} = \beta_1 x_1 + \varepsilon 
 $$
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 

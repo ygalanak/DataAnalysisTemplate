@@ -1,4 +1,4 @@
-# Data Analysis template
+# Data Analysis Template: A reproducibility universe
 
 This template is based on [Andrew Heiss'](https://www.andrewheiss.com/) [Global-Pandoc-Files](https://github.com/andrewheiss/Global-Pandoc-files) and [Portable Pandoc Magic](https://github.com/andrewheiss/portable-pandoc-magic) to convert Markdown-based documents into Word (docx through odt), HTML, and PDF (through xelatex). 
 

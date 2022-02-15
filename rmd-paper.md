@@ -7,7 +7,7 @@ author:
 - name: Author 2
   affiliation: University of Wherever
   email: author2@example2.ac.uk
-date: 10 February, 2022
+date: 15 February, 2022
 published: Working paper.
 title-page: true
 code-repo: "Access the code at <https://github.com/ygalanak/DataAnalysisTemplate>"
@@ -44,7 +44,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam (see @fig:mpg-plot), eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
 $$ 
-\text{This is a test} = \beta_1 x_1 + \epsilon 
+\text{This is a test} = \beta_1 x_1 + \varepsilon 
 $$
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
